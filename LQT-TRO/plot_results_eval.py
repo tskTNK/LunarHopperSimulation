@@ -62,7 +62,7 @@ def main():
     y = moving_average(y, 5)
     plt.plot(x, y, label='train3')
     """
-    """
+
     evaluation = np.load('log/lander/results_eval.npy')
     x = np.arange(evaluation.shape[0])*25
     y = evaluation[:,0]
@@ -74,7 +74,7 @@ def main():
     y = evaluation[:,0]
     y = moving_average(y, 4)
     plt.plot(x, y, label='evaluation1')
-    """
+    
     evaluation = np.load('log/lander/results_eval2.npy')
     x = np.arange(evaluation.shape[0])*25
     y = evaluation[:,0]

@@ -15,7 +15,7 @@ def demo_ddpg_lander(env, seed=None, render=False):
     total_reward = 0
     steps = 0
     s = env.reset()
-    mu = torch.load('log/lander/models1/model_3980')
+    mu = torch.load('log/lander/models/model_7980')
     mu = mu.eval()
 
     while True:
@@ -57,9 +57,9 @@ def demo_ddpg_lander(env, seed=None, render=False):
             elif a[i] > env.action_space3.high[i]:
                 a[i] = env.action_space3.high[i]
 
-        k1 = float(a[0]) + 1 # range: 1 - 3
+        k1 = float(a[0])*2 + 2 # range: 2 - 6
         k2 = float(a[1]) # range: 0 - 2
-        Hl_target = 0.1 # range: 0 - 2
+        Hl_target = 0.1
 
         # Approaching phase
         """

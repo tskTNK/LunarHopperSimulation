@@ -264,9 +264,9 @@ class DDPG():
             elif a[i] > self.env.action_space3.high[i]:
                 a[i] = self.env.action_space3.high[i]
 
-        k1 = float(a[0]) + 1 # range: 1 - 3
+        k1 = float(a[0])*2 + 2 # range: 2 - 6
         k2 = float(a[1]) # range: 0 - 2
-        Hl_target = 0.1 # range: 0 - 2
+        Hl_target = 0.1
 
         # Approaching phase
         """
@@ -389,13 +389,7 @@ class DDPG():
 
         while self.buffer.size < self.buffer_min:
 
-            # self.action_space = spaces.Box(-1, +1, (2,), dtype=np.float32)
             a = np.random.uniform(self.env.action_space3.low, self.env.action_space3.high, size=(self.a_dim))
-
-            # a1 = np.random.uniform(1, 3, size=1)
-            # a2 = np.random.uniform(0, 2, size=1)
-            # a3 = np.random.uniform(0, 2, size=1)
-            # a = (a1, a2, a3)
 
             a_updated = self.LQR(s, a)
 

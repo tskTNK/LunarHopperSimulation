@@ -33,7 +33,7 @@ def main():
     plt.legend()
     plt.show()
     """
-    """
+
     # plot lunar lander results
     train = np.load('log/lander/results_train.npy')
     x = np.arange(train.shape[0])
@@ -47,7 +47,7 @@ def main():
     y = train[:,0]
     y = moving_average(y, 5)
     plt.plot(x, y, label='train1')
-    """
+    
     # plot lunar lander results
     train = np.load('log/lander/results_train2.npy')
     x = np.arange(train.shape[0])
