@@ -493,13 +493,11 @@ def obstacleDetection(pos):
 def heuristic(env, s):
 
     # gravity = 9.8/FPS/FPS/SCALE # 0.00392 m/frame^2
-    gravity = 9.8/FPS/FPS # gravity is enhanced by scaling
-    thrust_main_max = gravity/0.56
-    thrust_side_max = thrust_main_max*0.095/0.7 # m/frame^2 # determined by test
-    m_main_inv = thrust_main_max    # gravity*0.57
-    m_side_inv = thrust_side_max    # gravity*0.225
-    a_i_inv= 0.198/100 # rad/frame^2 # determined by test # not depend on SCALE
-    align = 0.87   # 0.87 = sin30
+    gravity = 9.8/FPS/FPS # gravity changes depending on SCALE
+    m_main_inv = gravity/0.56    # determined by test
+    m_side_inv = gravity*0.365    # determined by test
+    a_sina_i_inv= 0.198/100 # determined by test # not depending on SCALE
+    cos_alpha = 0.72
 
     # target point set
     x_target = 0
@@ -573,10 +571,11 @@ def heuristic(env, s):
     B = np.array([ \
     [0, 0], \
     [0, 0], \
-    [0, m_side_inv*align], \
+    [0, m_side_inv*cos_alpha*cos_alpha], \
     [1*m_main_inv, 0], \
     [0, 0], \
-    [0, -1*a_i_inv]])
+    [0, -1*a_sina_i_inv]])
+    # the second term of the 4th row of B was igonred for simplification assuming that Fside is smaller than Fmain and negligible while Fmain is used
 
     sigma = np.array([ \
     [0], \
