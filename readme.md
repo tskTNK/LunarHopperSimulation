@@ -10,7 +10,9 @@ For more details about each algorithm, please read the following article:
 
 
 Note1: RL and LQT-TRO codes are based on an open-source code developed by Clayton Thorrez (https://github.com/cthorrez/ml-fun/tree/master/ddpg). Special thanks to him.
+
 Note2: the code is still experimental, and might have some bugs. Any inquiry and feedback should go to ttanaka@uh.edu.
 
 Thanks!
+
 tskTNK
