@@ -1,11 +1,8 @@
 The code is designed to work with LunarLanderContinuous-v2 from OpenAI Gym.
-
 Please install OpenAI Gym environment on your computer first and then run this software.
 
 LQT control algorithm is implemented in 'heuristic' function in the lunar_hopper_LQT.py.
-
 RL is a reinforcement learning code, and LQT-TRO is a LQT control with learning-based reference trajectory optimization.
-
 To get both codes working, lunar_lander.py in the box2d of gym files must be replaced with lunar_hopper_LQT.py.
 
 For more details about each algorithm, please read the following article:
